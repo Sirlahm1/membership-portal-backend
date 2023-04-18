@@ -24,6 +24,6 @@ module.exports = (req, res, next) => {
     //   return res.status(403).json({ message: "Authorization Failed!" });
     // }
   } catch (err) {
-    return res.status(401).json({ message: "Authorization Failed" });
+    return res.status(401).json({ message: "Authentication Failed!" });
   }
 };

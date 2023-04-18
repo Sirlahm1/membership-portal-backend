@@ -56,7 +56,7 @@ const exportData = async (req, res, next) => {
   if (req.userData.role === "user")
     return next(HttpError("You are unauthorized for this operation", 403));
 
-  User.find({}, "-__v")
+    User.find({}, "first_name last_name address phone_number employer years_of_exp membership_type role email")
     .then((data) => {
       const headers = Object.keys(data[0].toObject());
       const csvData = csv.stringify([
