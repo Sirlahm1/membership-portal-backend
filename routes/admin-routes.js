@@ -49,7 +49,7 @@ router.get("/existing-bills", auth, adminController.getExistingBill);
 router.get("/paid-bills", auth, adminController.getPaidBills);
 router.get("/download-report", auth, adminController.downloadPaymentReport);
 router.post(
-  "/add-event",
+  "/add-event", auth,
   [
     check("name").not().isEmpty().withMessage("Name of event is required"),
     check("members")
@@ -61,7 +61,7 @@ router.post(
     check("start_date").not().isEmpty().withMessage("Start Date is required"),
     check("end_date").not().isEmpty().withMessage("End Date is required"),
   ],
-  auth,
+  
   adminController.createEvent
 );
 router.get("/get-events", auth, adminController.getEvents);
